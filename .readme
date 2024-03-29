@@ -1,0 +1,24 @@
+  @forelse ($showcate as $item)
+                <div class="carousel__slide" style="width: 350px">
+                    {{-- <div class=""> --}}
+                    <div class="shadow w-100 mx-auto">
+                        <a class="" href="{{ route('show_category', $item->slug_name) }}">
+                            <img style="height: 100%" class="w-100 rounded-top"
+                                src="{{ asset('/storage/images/' . $item->image) }}" alt="{{ $item->name }}">
+                        </a>
+                        <a class="btn btn-outline-primary rounded-bottom btn-lg w-100"
+                            href="{{ route('show_category', $item->slug_name) }}">{{ $item->name }}</a>
+                    </div>
+                    {{-- </div><!-- /.col-lg-4 --> --}}
+                </div>
+                @empty
+                <div class="carousel__slide" style="width: 350px">
+                    <div class="shadow w-100 mx-auto">
+                        {{-- <a class="" href="{{ route('show_category', $item->slug_name) }}">
+                        <img style="height: 100%" class="w-100 rounded-top"
+                            src="{{ asset('/storage/images/' . $item->image) }}" alt="{{ $item->name }}">
+                        </a> --}}
+                        <a class="btn btn-outline-primary rounded-bottom btn-lg w-100" href="">No Categories</a>
+                    </div>
+                </div>
+                @endforelse
